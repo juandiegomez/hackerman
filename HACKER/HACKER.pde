@@ -5,6 +5,7 @@ boolean ataque = false;
 PImage hackerman, background, virus;
 PImage [] rack = new PImage[6];
 int vivos[];
+int puntaje = 0;
 
 //CannonBall ball;
 AtaqueHacker exploit;
@@ -31,23 +32,41 @@ void draw() {
   image(hackerman,5, -20);
   //hackerman.resize(0,300);
   popMatrix();
+  
+  fill(255);
+  textSize(20);
+  text("Racks Hackeados: "+puntaje,20,20);
+  
+  puntaje=0;
   if (vivos[0]==1){
     image(rack[0],60,60);
+  }else{
+    puntaje=puntaje+1;
   }
   if (vivos[1]==1){
     image(rack[1],240,60);
+  }else{
+    puntaje=puntaje+1;
   }
   if (vivos[2]==1){
     image(rack[2],420,60);
+  }else{
+    puntaje=puntaje+1;
   }
   if (vivos[3]==1){
     image(rack[3],150,160);
+  }else{
+    puntaje=puntaje+1;
   }
   if (vivos[4]==1){
     image(rack[4],330,160);
+  }else{
+    puntaje=puntaje+1;
   }
    if (vivos[5]==1){
     image(rack[5],240,260);
+  }else{
+    puntaje=puntaje+1;
   }
 
 
@@ -63,6 +82,7 @@ void draw() {
     exploit = new AtaqueHacker(hacker.x, hacker.y);  
     ataque = false;
   }
+
 }
 
 void keyPressed() {
@@ -136,8 +156,4 @@ class AtaqueHacker {
       vivos[5]=0;
     }
   }
-}
-
-void destruirRack(){
-  
 }
